@@ -1,6 +1,6 @@
 <%@ page import="java.util.*" %>
 
 <div id="iptf_content">
-Home Page
+Home Page - Testing
 	
 </div> <!-- end of content -->

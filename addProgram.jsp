@@ -116,7 +116,7 @@ ArrayList projectList= DBManager.getProjectList("all",0);
 %>
  	
  <div class="right_col_section">
-     	<h1>Participant Registration</h1>      
+     	<h1>Add Program</h1>      
  </div>
 		  
 <form name="form2" method="post">
