@@ -19,4 +19,5 @@ com.iptf.User user = null;
 <jsp:include page="body_content.jsp" />
 <jsp:include page="footer.jsp" />
 </div> <!-- end of container -->
+</body>
 </html>

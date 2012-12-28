@@ -26,10 +26,13 @@ String cellPhone = "";
 String gender = "";
 String desc = "";
 
-com.iptf.User user = null;	
 ArrayList objList = null;
-String userId = request.getParameter("user");
-User obj = null;		
+
+User user = (User)session.getAttribute("USER");
+String message = null;
+
+if(user != null)
+{
 
 
 if (submitted != null && submitted.equals("true"))
@@ -114,14 +117,13 @@ ArrayList projectList= DBManager.getProjectList("all",0);
 */
 
 %>
- 	
+ <div class="right_col_section" align="right"><h1><%=user.getParishName() %></h1></div>
  <div class="right_col_section">
      	<h1>Participant Registration</h1>      
  </div>
 		  
 <form name="form2" method="post">
 	<input type="hidden" name="submitted" value="true">
-	<input type="hidden" name="userId" value="<%=userId %>">
 	<table>
 
 		<tr>
@@ -246,3 +248,10 @@ ArrayList projectList= DBManager.getProjectList("all",0);
 		
 	</table>
 	</form>		  
+<%	
+}
+else
+{
+	response.sendRedirect("login.jsp");
+}
+%>
