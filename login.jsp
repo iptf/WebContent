@@ -38,9 +38,9 @@ if (submitted != null && submitted.equals("true"))
 	}
 	catch(Exception e)
 	{
-		out.println(e);
+		e.printStackTrace();
 	}
-	
+	//user=new User();
 	if(user != null)
 	{
 		session.setAttribute("USER",user);

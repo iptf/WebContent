@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.iptf.*" %>
-<%@ taglib uri="/WEB-INF/c.tld" prefix="c" %>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<c:set var="user" value="${sessionScope.USER}" />
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,19 +11,8 @@
 <link href="styles/iptf_style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<%
-
-
-//String leftMenu="";
-//leftMenu = request.getParameter("leftMenu");
-
-User user = (User)session.getAttribute("USER");
-String message = null;
-
-if(user != null)
-{
-
-%>
+<c:choose>
+ <c:when test="${user != null}" >
 
 <div id="iptf_container">
 <jsp:include page="header.jsp" />
@@ -56,14 +45,10 @@ if(user != null)
 
 <jsp:include page="footer.jsp" />
 </div> <!-- end of container -->
-
-<%	
-}
-else
-{
-	response.sendRedirect("login.jsp");
-}
-%>
-
+</c:when>
+<c:otherwise>
+ <c:redirect url="login.jsp" />
+</c:otherwise>
+</c:choose>
 </body>
 </html>

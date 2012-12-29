@@ -74,6 +74,13 @@ p { margin: 0; padding: 0; text-align: justify;}
 	height: 50px;
 	background: url(../images/iptf_menu_bg.gif) repeat-x;
 }
+#iptf_welcome{	
+	font-size: 12px;
+	font-weight: bold;	
+	text-decoration: none;
+	color: #2C7034;		
+	padding-left: 10px;
+}
 
 #iptf_menu ul {
 	text-align: center;

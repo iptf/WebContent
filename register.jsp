@@ -117,7 +117,6 @@ ArrayList projectList= DBManager.getProjectList("all",0);
 */
 
 %>
- <div class="right_col_section" align="right"><h1><%=user.getParishName() %></h1></div>
  <div class="right_col_section">
      	<h1>Participant Registration</h1>      
  </div>
