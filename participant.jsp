@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
-<c:set var="user" value="${sessionScope.USER}" />
+<%@ page import="com.iptf.*" %>
+<%@ taglib uri="/WEB-INF/c.tld" prefix="c" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,8 +11,6 @@
 <link href="styles/iptf_style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<c:choose>
- <c:when test="${user != null}" >
 
 <div id="iptf_container">
 <jsp:include page="header.jsp" />
@@ -45,10 +43,7 @@
 
 <jsp:include page="footer.jsp" />
 </div> <!-- end of container -->
-</c:when>
-<c:otherwise>
- <c:redirect url="login.jsp" />
-</c:otherwise>
-</c:choose>
+
+
 </body>
 </html>

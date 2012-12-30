@@ -1,9 +1,15 @@
-
+<%@ taglib uri="/WEB-INF/c.tld" prefix="c" %>
 
 <form name="form1" method="post" action="login.jsp">
 <input type="hidden" name="submitted" value="true">
 
 <table align="center" style="width: 400px" height="600px">
+	<tr><td>
+	<font color="red">
+		<c:out value="${message}"></c:out>
+	</font>
+      
+	</td></tr>
 	<tr>
 		<td>
 		<table border="0" cellpadding="4" cellspacing="4">		

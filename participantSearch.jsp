@@ -1,6 +1,6 @@
-<%@ page import="java.util.*,com.iptf.*" %>
+<%@ page import="java.util.*,com.iptf.*, com.iptf.db.model.*" %>
 <%
-String submitted = request.getParameter("submitted");
+	String submitted = request.getParameter("submitted");
 
 String firstName = "";
 String lastName = "";
@@ -26,7 +26,7 @@ String cellPhone = "";
 String gender = "";
 String desc = "";
 
-com.iptf.User user = null;	
+com.iptf.db.model.User user = null;	
 ArrayList objList = null;
 String userId = request.getParameter("user");
 User obj = null;		
@@ -112,7 +112,6 @@ obj = DBManager.getUserDetails(userId);
 
 ArrayList projectList= DBManager.getProjectList("all",0);
 */
-
 %>
  <div class="right_col_section">
      	<h1>Search Participant</h1>      

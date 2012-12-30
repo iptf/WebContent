@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-com.iptf.User user = null;	
+	com.iptf.db.model.User user = null;
 %>
 
 
