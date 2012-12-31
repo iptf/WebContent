@@ -1,131 +1,19 @@
 <%@ page import="java.util.*,com.iptf.*, com.iptf.db.model.*" %>
-<%
-	String submitted = request.getParameter("submitted");
+<%@ taglib uri="/WEB-INF/c.tld" prefix="c" %>
 
-String firstName = "";
-String lastName = "";
-String email = "";
-String altEmail = "";
-String role = "";
-String parish = "";
-String parishIndia = "";
-
-String familyName = "";
-String fatherName = "";
-String motherName = "";
-
-String streetAddress = "";
-String suite = "";
-String city = "";
-String state = "";
-String zip = "";
-
-String homePhone = "";
-String cellPhone = "";
-
-String gender = "";
-String desc = "";
-
-com.iptf.db.model.User user = null;	
-ArrayList objList = null;
-String userId = request.getParameter("user");
-User obj = null;		
-
-
-if (submitted != null && submitted.equals("true"))
-{
-	try{	
-	
-	firstName = request.getParameter("firstName");
-	lastName = request.getParameter("lastName");
-	email = request.getParameter("email");
-	altEmail = request.getParameter("altEmail");
-
-	parish = request.getParameter("parish");
-	parishIndia= request.getParameter("parishIndia");
-	role = "C";
-	
-	
-	streetAddress = request.getParameter("streetAddress");
-	suite = request.getParameter("suite");
-	city = request.getParameter("city");
-	state = request.getParameter("state");
-	zip = request.getParameter("zip");
-	
-	familyName = request.getParameter("familyName");
-	fatherName = request.getParameter("fatherName");
-	motherName = request.getParameter("motherName");	
-	desc = request.getParameter("desc");
-	gender = request.getParameter("gender");
-	
-	homePhone = request.getParameter("homePhone");
-	cellPhone = request.getParameter("cellPhone");
-
-	
-	user = new User();
-	user.setFirstName(firstName);
-	user.setLastName(lastName);
-	user.setParish(parish);
-	user.setParishIndia(parishIndia);
-	
-	user.setEmail(email);	
-	user.setAltEmail(altEmail);	
-	user.setRole(role);
-	user.setFamilyName(familyName);
-	user.setFatherName(fatherName);
-	user.setMotherName(motherName);
-	
-	user.setStreetAddress(streetAddress);
-	user.setCity(city);
-	user.setSuite(suite);
-	user.setState(state);
-	user.setZipCode(zip);
-	
-	user.setHomePhone(homePhone);
-	user.setCellPhone(cellPhone);
-	
-	user.setDescription(desc);
-	user.setGender(gender);
-  	
-	DBManager.manageParticipant(user,"insert");
-	out.println("<B>User added....</B>");
-  	}
-  	catch(Exception e)
-  	{
-  		out.println(e);
-  	}
-	}		
-
-
-/*
-objList= DBManager.getUserList("Manager",0);
-
-if(userId == null)
-{
-	if(objList != null && objList.size()>0)
-	{
-		userId = ((User)objList.get(0)).getEmpId();
-	}			
-}
-
-obj = DBManager.getUserDetails(userId);
-
-ArrayList projectList= DBManager.getProjectList("all",0);
-*/
-%>
  <div class="right_col_section">
      	<h1>Search Participant</h1>      
  </div>
 		  
-<form name="form2" method="post">
+<form name="form2" method="post" action="participant">
 	<input type="hidden" name="submitted" value="true">
-	<input type="hidden" name="userId" value="<%=userId %>">
+	<input type="hidden" name="userId" value='<c:out value="${USER.email}"/>'/>
 	<table>
 
 		<tr>
 			<td>&nbsp;</td>
 			<td>First Name</td>
-			<td><input type="text" name="firstName" value="" size="30"></td>
+			<td><input type="text" name="firstName" value='<c:out value="${participant.fname }" />' size="30"/></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
